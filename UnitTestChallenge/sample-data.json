@@ -1,0 +1,22 @@
+{
+  "Users": [
+    {
+      "UserID": 1,
+      "FirstName": "string",
+      "LastName": "string",
+      "Email": "string",
+      "IsActive": false,
+      "Organization": {
+        "OrganizationID": 1,
+        "Name": "string",
+        "Abbreviation": "string"
+      },
+      "SystemRole": {
+        "SystemRoleID": 1,
+        "Name": "string",
+        "Internal": false
+      }
+    }
+  ],
+  "TotalCount": 1
+}
