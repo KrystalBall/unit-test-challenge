@@ -67,4 +67,26 @@ public class OrganizationUserHelperTests
         UserList userList = null;
         Assert.ThrowsException<Exception>(() => OrganizationUserHelper.GetUsers(userList, 1));
     }
+
+    [TestMethod]
+    public void OrganizationUserIncludesFirstName()
+    {
+        Fixture fixture = new();
+        var organizationUsers = fixture
+            .Build<User>()
+            .CreateMany(2)
+            .ToList();
+
+        var organizationId = organizationUsers[0].Organization.OrganizationID;
+        var expectedName = organizationUsers[0].FirstName;
+
+        UserList userList = new() { Users = organizationUsers };
+
+        var returnedUsers = OrganizationUserHelper.GetUsers(userList, organizationId);
+
+        Assert.AreEqual(expectedName, returnedUsers.Users[0].FirstName);
+
+        // I would make an additional test for each property that is critical for success, based on business demands. That could be all of them.
+        // Since this is only an excerise, I'd like to save time and leave it at this comment.
+    }
 }

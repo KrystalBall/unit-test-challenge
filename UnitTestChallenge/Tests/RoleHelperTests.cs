@@ -62,4 +62,26 @@ public class RoleHelperTests
         UserList userList = null;
         Assert.ThrowsException<Exception>(() => RoleHelper.GetUsers(userList, 1));
     }
+
+    [TestMethod]
+    public void RoleUserIncludesFirstName()
+    {
+        Fixture fixture = new();
+        var roleUsers = fixture
+            .Build<User>()
+            .CreateMany(2)
+            .ToList();
+
+        var roleId = roleUsers[0].SystemRole.SystemRoleID;
+        var expectedFirstName = roleUsers[0].FirstName;
+
+        UserList userList = new() { Users = roleUsers };
+
+        var returnedUsers = RoleHelper.GetUsers(userList, roleId);
+
+        Assert.AreEqual(expectedFirstName, returnedUsers.Users[0].FirstName);
+
+        // I would make an additional test for each property that is critical for success, based on business demands. That could be all of them.
+        // Since this is only an excerise, I'd like to save time and leave it at this comment.
+    }
 }
