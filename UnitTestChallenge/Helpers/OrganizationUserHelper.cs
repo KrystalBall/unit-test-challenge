@@ -4,9 +4,9 @@ namespace UnitTestChallenge.Helpers;
 
 public static class OrganizationUserHelper
 {
-    public static UserList GetUsers(UserList users, int organizarionID)
+    public static UserList GetUsers(UserList users, int organizationID)
     {
-        var organizationUsers = users.Users.Where(x => x.Organization.OrganizationID == organizarionID).ToList();
+        var organizationUsers = users.Users.Where(x => x.Organization.OrganizationID == organizationID).ToList();
         return new()
         {
             Users = organizationUsers,
