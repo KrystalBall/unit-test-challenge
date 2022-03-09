@@ -51,7 +51,7 @@ public class TestExample
     public void SpecifiedUserShouldErrorIfParameterIsNull()
     {
         UserList userList = null;
-        Assert.ThrowsException<ArgumentNullException>(() => SingleUserHelper.GetUser(userList, 1));
+        Assert.ThrowsException<Exception>(() => SingleUserHelper.GetUser(userList, 1));
     }
 
     [TestMethod]
@@ -110,7 +110,7 @@ public class TestExample
     public void OrganizationUserShouldErrorIfParameterIsNull()
     {
         UserList userList = null;
-        Assert.ThrowsException<ArgumentNullException>(() => OrganizationUserHelper.GetUsers(userList, 1));
+        Assert.ThrowsException<Exception>(() => OrganizationUserHelper.GetUsers(userList, 1));
     }
 
     [TestMethod]
@@ -164,7 +164,7 @@ public class TestExample
     public void RoleUserShouldErrorIfParameterIsNull()
     {
         UserList userList = null;
-        Assert.ThrowsException<ArgumentNullException>(() => RoleHelper.GetUsers(userList, 1));
+        Assert.ThrowsException<Exception>(() => RoleHelper.GetUsers(userList, 1));
     }
 
     [TestMethod]
@@ -222,7 +222,7 @@ public class TestExample
     public void OrganizationRoleUserShouldErrorIfParameterIsNull()
     {
         UserList userList = null;
-        Assert.ThrowsException<ArgumentNullException>(() => RoleAndOrganizationHelper.GetUsers(userList, 1, 1));
+        Assert.ThrowsException<Exception>(() => RoleAndOrganizationHelper.GetUsers(userList, 1, 1));
     }
 
     [TestMethod]

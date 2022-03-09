@@ -11,25 +11,53 @@ public class UserController : ControllerBase
     [Route("{userID}"), AcceptVerbs("GET")]
     public IActionResult GetUser(int userID)
     {
-        return Ok(SingleUserHelper.GetUser(ReadSampleJson(), userID));
+        try
+        {
+            return Ok(SingleUserHelper.GetUser(ReadSampleJson(), userID));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [Route("organization/{organizationID}"), AcceptVerbs("GET")]
     public IActionResult GetUsers(int organizationID)
     {
-        return Ok(OrganizationUserHelper.GetUsers(ReadSampleJson(), organizationID));
+        try
+        {
+            return Ok(OrganizationUserHelper.GetUsers(ReadSampleJson(), organizationID));
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
     }
 
     [Route("role/{systemRoleID}"), AcceptVerbs("GET")]
     public IActionResult GetUsersByRole(int systemRoleID)
     {
-        return Ok(RoleHelper.GetUsers(ReadSampleJson(), systemRoleID));
+        try
+        {
+            return Ok(RoleHelper.GetUsers(ReadSampleJson(), systemRoleID));
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
     }
 
     [Route("organization/{organizationID}/role/{systemRoleID}"), AcceptVerbs("GET")]
     public IActionResult GetOrganizationUsersByRole(int organizationID, int systemRoleID)
     {
-        return Ok(RoleAndOrganizationHelper.GetUsers(ReadSampleJson(), organizationID, systemRoleID));
+        try
+        {
+            return Ok(RoleAndOrganizationHelper.GetUsers(ReadSampleJson(), organizationID, systemRoleID));
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
     }
 
     private static UserList ReadSampleJson()
