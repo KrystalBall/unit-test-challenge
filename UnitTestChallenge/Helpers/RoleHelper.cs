@@ -6,6 +6,9 @@ public static class RoleHelper
 {
     public static UserList GetUsers(UserList users, int systemRoleID)
     {
+        if (users == null)
+            throw new ArgumentNullException("Unable to find users.");
+
         var roleUsers = users.Users.Where(x => x.SystemRole.SystemRoleID == systemRoleID).ToList();
         return new()
         {

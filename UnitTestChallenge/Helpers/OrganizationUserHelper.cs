@@ -6,6 +6,9 @@ public static class OrganizationUserHelper
 {
     public static UserList GetUsers(UserList users, int organizationID)
     {
+        if (users == null)
+            throw new ArgumentNullException("Unable to find users.");
+
         var organizationUsers = users.Users.Where(x => x.Organization.OrganizationID == organizationID).ToList();
         return new()
         {

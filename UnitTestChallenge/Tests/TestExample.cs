@@ -48,6 +48,13 @@ public class TestExample
     }
 
     [TestMethod]
+    public void SpecifiedUserShouldErrorIfParameterIsNull()
+    {
+        UserList userList = null;
+        Assert.ThrowsException<ArgumentNullException>(() => SingleUserHelper.GetUser(userList, 1));
+    }
+
+    [TestMethod]
     public void ShouldGetCorrectOrganizationUser()
     {
         // I decided to double check AutoFixture's trustworthiness for random, unique IDs between multiple instances of complex objects.
@@ -100,6 +107,13 @@ public class TestExample
     }
 
     [TestMethod]
+    public void OrganizationUserShouldErrorIfParameterIsNull()
+    {
+        UserList userList = null;
+        Assert.ThrowsException<ArgumentNullException>(() => OrganizationUserHelper.GetUsers(userList, 1));
+    }
+
+    [TestMethod]
     public void ShouldGetCorrectRoleUsers()
     {
         Fixture fixture = new();
@@ -144,6 +158,13 @@ public class TestExample
         var returnedUsers = RoleHelper.GetUsers(userList, 2);
 
         Assert.AreEqual(0, returnedUsers.Users.Count);
+    }
+
+    [TestMethod]
+    public void RoleUserShouldErrorIfParameterIsNull()
+    {
+        UserList userList = null;
+        Assert.ThrowsException<ArgumentNullException>(() => RoleHelper.GetUsers(userList, 1));
     }
 
     [TestMethod]
@@ -195,6 +216,13 @@ public class TestExample
         var returnedUsers = RoleAndOrganizationHelper.GetUsers(userList, expectedOrganizationId, expectedRoleId);
 
         Assert.AreEqual(0, returnedUsers.Users.Count);
+    }
+
+    [TestMethod]
+    public void OrganizationRoleUserShouldErrorIfParameterIsNull()
+    {
+        UserList userList = null;
+        Assert.ThrowsException<ArgumentNullException>(() => RoleAndOrganizationHelper.GetUsers(userList, 1, 1));
     }
 
     [TestMethod]
