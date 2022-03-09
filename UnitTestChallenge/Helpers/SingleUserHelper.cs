@@ -6,7 +6,10 @@ public static class SingleUserHelper
 {
     public static User GetUser(UserList users, int userID)
     {
-        //Refactor this to throw a custom error if no user is found.
-        return users.Users.FirstOrDefault(x => x.UserID == userID);
+        var user = users.Users.FirstOrDefault(x => x.UserID == userID);
+        if (user == null)
+            throw new Exception("User not found.");
+        else
+            return user;
     }
 }
