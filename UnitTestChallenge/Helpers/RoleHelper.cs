@@ -10,7 +10,6 @@ public static class RoleHelper
         return new()
         {
             Users = roleUsers,
-            TotalCount = roleUsers.Count,
         };
     }
 }

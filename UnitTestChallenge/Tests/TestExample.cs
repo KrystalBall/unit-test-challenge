@@ -43,7 +43,7 @@ public class TestExample
 
         UserList userList = new() { Users = organizationUsers };
 
-        // Let those silly humans care about the error message. Just check the type so that the test is less brittle.
+        // Let those silly humans care about the error message. Just check the exception type so that the test is less brittle.
         Assert.ThrowsException<Exception>(() => SingleUserHelper.GetUser(userList, 2));
     }
 
@@ -195,6 +195,26 @@ public class TestExample
         var returnedUsers = RoleAndOrganizationHelper.GetUsers(userList, expectedOrganizationId, expectedRoleId);
 
         Assert.AreEqual(0, returnedUsers.Users.Count);
+    }
+
+    [TestMethod]
+    public void UserListTotalCountIsZeroWhenUsersNull()
+    {
+        Assert.AreEqual(0, new UserList().TotalCount);
+    }
+
+    [TestMethod]
+    public void UserListTotalCountReturnsUsersCount()
+    {
+        Fixture fixture = new();
+        var users = fixture
+            .Build<User>()
+            .CreateMany()
+            .ToList();
+
+        UserList userList = new() { Users = users };
+
+        Assert.AreEqual(userList.Users.Count, userList.TotalCount);
     }
 
     private static IEnumerable<object[]> GetUserCountTestData()

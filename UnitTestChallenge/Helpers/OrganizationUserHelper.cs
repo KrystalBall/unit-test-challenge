@@ -9,8 +9,7 @@ public static class OrganizationUserHelper
         var organizationUsers = users.Users.Where(x => x.Organization.OrganizationID == organizationID).ToList();
         return new()
         {
-            Users = organizationUsers,
-            TotalCount = organizationUsers.Count,
+            Users = organizationUsers
         };
     }
 }

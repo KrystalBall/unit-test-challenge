@@ -11,7 +11,6 @@ public class RoleAndOrganizationHelper
         return new()
         {
             Users = organizationRoleUsers,
-            TotalCount = organizationRoleUsers.Count,
         };
     }
 }
