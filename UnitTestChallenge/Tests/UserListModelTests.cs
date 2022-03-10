@@ -8,7 +8,7 @@ namespace UnitTestChallenge.Tests;
 public class UserListModelTests
 {
     [TestMethod]
-    [TestCategory("Routine")]
+    [TestCategory("LowPriority")]
 
     public void UserListTotalCountIsZeroWhenUsersNull()
     {
@@ -16,7 +16,7 @@ public class UserListModelTests
     }
 
     [TestMethod]
-    [TestCategory("Routine")]
+    [TestCategory("LowPriority")]
     public void UserListTotalCountReturnsUsersCount()
     {
         Fixture fixture = new();
