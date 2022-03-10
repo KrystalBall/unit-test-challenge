@@ -53,12 +53,12 @@ public class RoleAndOrganizationHelperTests
             .CreateMany(2)
             .ToList();
 
-        var expectedRoleId = users[0].SystemRole.SystemRoleID;
-        var expectedOrganizationId = users[1].Organization.OrganizationID;
+        var roleId = users[0].SystemRole.SystemRoleID;
+        var organizationId = users[1].Organization.OrganizationID;
 
         UserList userList = new() { Users = users };
 
-        var returnedUsers = RoleAndOrganizationHelper.GetUsers(userList, expectedOrganizationId, expectedRoleId);
+        var returnedUsers = RoleAndOrganizationHelper.GetUsers(userList, organizationId, roleId);
 
         Assert.AreEqual(0, returnedUsers.Users.Count);
     }
