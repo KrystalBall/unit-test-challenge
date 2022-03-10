@@ -10,6 +10,7 @@ namespace UnitTestChallenge.Tests;
 public class RoleHelperTests
 {
     [TestMethod]
+    [TestCategory("Routine")]
     public void ShouldGetCorrectRoleUsers()
     {
         Fixture fixture = new();
@@ -28,6 +29,7 @@ public class RoleHelperTests
     }
 
     [DataTestMethod]
+    [TestCategory("Routine")]
     [DynamicData(nameof(TestData.GetUserCountTestData), typeof(TestData), DynamicDataSourceType.Method)]
     public void ShouldGetAllValidRoleUsers(List<User> roleUsers, int expectedCount)
     {
@@ -39,6 +41,7 @@ public class RoleHelperTests
     }
 
     [TestMethod]
+    [TestCategory("Routine")]
     public void ReturnEmptyListIfNoRoleUserMatch()
     {
         Fixture fixture = new();
@@ -57,6 +60,7 @@ public class RoleHelperTests
     }
 
     [TestMethod]
+    [TestCategory("LowPriority")]
     public void RoleUserShouldErrorIfParameterIsNull()
     {
         UserList userList = null;
@@ -64,6 +68,7 @@ public class RoleHelperTests
     }
 
     [TestMethod]
+    [TestCategory("Routine")]
     public void RoleUserIncludesFirstName()
     {
         Fixture fixture = new();

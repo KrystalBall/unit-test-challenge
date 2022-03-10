@@ -10,6 +10,7 @@ namespace UnitTestChallenge.Tests;
 public class OrganizationUserHelperTests
 {
     [TestMethod]
+    [TestCategory("Routine")]
     public void ShouldGetCorrectOrganizationUser()
     {
         // I decided to double check AutoFixture's trustworthiness for random, unique IDs between multiple instances of complex objects.
@@ -32,6 +33,7 @@ public class OrganizationUserHelperTests
     }
 
     [DataTestMethod]
+    [TestCategory("Routine")]
     [DynamicData(nameof(TestData.GetUserCountTestData), typeof(TestData), DynamicDataSourceType.Method)]
     public void ShouldGetAllValidOrganizationUsers(List<User> organizationUsers, int expectedCount)
     {
@@ -44,6 +46,7 @@ public class OrganizationUserHelperTests
     }
 
     [TestMethod]
+    [TestCategory("Routine")]
     public void ReturnEmptyListIfNoOrganizationUserMatch()
     {
         Fixture fixture = new();
@@ -62,6 +65,7 @@ public class OrganizationUserHelperTests
     }
 
     [TestMethod]
+    [TestCategory("LowPriority")]
     public void OrganizationUserShouldErrorIfParameterIsNull()
     {
         UserList userList = null;
@@ -69,6 +73,7 @@ public class OrganizationUserHelperTests
     }
 
     [TestMethod]
+    [TestCategory("Routine")]
     public void OrganizationUserIncludesFirstName()
     {
         Fixture fixture = new();

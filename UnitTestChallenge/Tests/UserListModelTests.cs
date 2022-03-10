@@ -8,12 +8,15 @@ namespace UnitTestChallenge.Tests;
 public class UserListModelTests
 {
     [TestMethod]
+    [TestCategory("Routine")]
+
     public void UserListTotalCountIsZeroWhenUsersNull()
     {
         Assert.AreEqual(0, new UserList().TotalCount);
     }
 
     [TestMethod]
+    [TestCategory("Routine")]
     public void UserListTotalCountReturnsUsersCount()
     {
         Fixture fixture = new();

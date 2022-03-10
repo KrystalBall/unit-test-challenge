@@ -9,6 +9,7 @@ namespace UnitTestChallenge.Tests;
 public class SingleUserHelperTests
 {
     [TestMethod]
+    [TestCategory("Routine")]
     public void ShouldGetSpecifiedUser()
     {
         Fixture fixture = new();
@@ -29,6 +30,7 @@ public class SingleUserHelperTests
     }
 
     [TestMethod]
+    [TestCategory("Routine")]
     public void ShouldErrorIfNoSpecifiedUserMatch()
     {
         Fixture fixture = new();
@@ -48,6 +50,7 @@ public class SingleUserHelperTests
     }
 
     [TestMethod]
+    [TestCategory("LowPriority")]
     public void SpecifiedUserShouldErrorIfParameterIsNull()
     {
         UserList userList = null;
@@ -55,6 +58,7 @@ public class SingleUserHelperTests
     }
 
     [TestMethod]
+    [TestCategory("Routine")]
     public void SpecifiedUserIncludesFirstName()
     {
         Fixture fixture = new();
